@@ -23,7 +23,7 @@ pipeline {
         stage('Push Registry'){
             steps{
                 withCredentials([usernamePassword(credentialsId: '900eb646-503e-4190-9bff-8537ec3a7296', passwordVariable: 'password', usernameVariable: 'user')]) {
-                def registry_url = "https://index.docker.io/v1/"
+                def registry_url = 'index.docker.io/v1/'
                 sh 'docker login -u $USER -p $PASSWORD ${registry_url}'
                 sh 'docker tag app jmonterh/app:stable'
                 sh 'docker push jmonterh/app:stable'
