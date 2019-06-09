@@ -22,7 +22,7 @@ pipeline {
 
         stage('Push Registry'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'https://index.docker.io/v1/', passwordVariable: 'password', usernameVariable: 'user')]) {
+                withCredentials([usernamePassword(credentialsId: '900eb646-503e-4190-9bff-8537ec3a7296', passwordVariable: 'password', usernameVariable: 'user')]) {
                 echo 'PASSWORD: $password'
                 echo 'USER: $user'
                 sh 'docker tag app jmonterh/app:stable'
