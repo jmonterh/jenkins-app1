@@ -22,9 +22,14 @@ pipeline {
 
         stage('Push Registry'){
             steps{
-                echo 'push registry in dockerhub'
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'user')]) {
+                echo 'PASSWORD: $password'
+                echo 'USER: $user'
+                
+                
                 sh 'docker tag app jmonterh/app:stable'
                 sh 'docker push jmonterh/app:stable'
+                }
             }
         }
     }
