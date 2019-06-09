@@ -14,7 +14,7 @@ pipeline {
                 sh '/bin/nc -vz localhost 80' 
             }
             post{
-                allways{
+                always{
                     sh 'docker container stop app'
                 }
             }
